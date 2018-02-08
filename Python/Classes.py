@@ -5,6 +5,7 @@ Created on Thu Feb  8 20:08:38 2018
 
 @author: stabassam
 """
+from math import sqrt
 
 class Vector(object):
     
@@ -31,6 +32,19 @@ class Vector(object):
     def times_scalar(self,c):
         new_coordinates = [ c * x for x in self.coordinates]
         return Vector(new_coordinates)
+    
+    #Magnitude
+    def magnitude(self):
+        coordinates_square = [x ** 2 for x in self.coordinates]
+        return sqrt(sum(coordinates_square))
+
+    #Find normalized direction
+    def normalized(self):
+        try:
+            magnitude = self.magnitude()
+            return self.times_scalar(1./magnitude)
+        except ZeroDivisionError:
+            raise Exception('Cannot normalize the zero vector')
 
     #String Representation Format
     def __str__(self):
@@ -50,3 +64,4 @@ v = Vector([8.218, -9.341])
 w = Vector([1.129, 2.111])
 
 print(v.plus(w))            
+print(v.magnitude())
