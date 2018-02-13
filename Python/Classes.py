@@ -19,12 +19,13 @@ class Vector(object):
             self.dimension = len(coordinates)
         except ValueError:
             raise ValueError('The coordinates myst be non-empty')
+
     # Addition
     def plus(self,v):
         new_coordinates = [ x + y for x,y in zip(self.coordinates, v.coordinates)]
         return Vector(new_coordinates)
     
-    # Substraction
+    # Subtraction
     def minus(self,v):
         new_coordinates = [ x - y for x,y in zip(self.coordinates, v.coordinates)]
         return Vector(new_coordinates)
