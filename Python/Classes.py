@@ -7,9 +7,10 @@ Created on Thu Feb  8 20:08:38 2018
 """
 from math import sqrt
 
+
 class Vector(object):
     
-    #Constructor
+    # Constructor
     def __init__(self, coordinates):
         try:
             if not coordinates:
@@ -18,27 +19,27 @@ class Vector(object):
             self.dimension = len(coordinates)
         except ValueError:
             raise ValueError('The coordinates myst be non-empty')
-    #Addition    
+    # Addition
     def plus(self,v):
         new_coordinates = [ x + y for x,y in zip(self.coordinates, v.coordinates)]
         return Vector(new_coordinates)
     
-    #Substraction
+    # Substraction
     def minus(self,v):
         new_coordinates = [ x - y for x,y in zip(self.coordinates, v.coordinates)]
         return Vector(new_coordinates)
 
-    #Scalar Multiplication
+    # Scalar Multiplication
     def times_scalar(self,c):
         new_coordinates = [ c * x for x in self.coordinates]
         return Vector(new_coordinates)
     
-    #Magnitude
+    # Magnitude
     def magnitude(self):
         coordinates_square = [x ** 2 for x in self.coordinates]
         return sqrt(sum(coordinates_square))
 
-    #Find normalized direction
+    # Find normalized direction
     def normalized(self):
         try:
             magnitude = self.magnitude()
@@ -46,18 +47,19 @@ class Vector(object):
         except ZeroDivisionError:
             raise Exception('Cannot normalize the zero vector')
 
-    #String Representation Format
+    # String Representation Format
     def __str__(self):
         return 'Vector : {0}' . format(self.coordinates)
     
-    #Comparator
+    # Comparator
     def __eq__(self, v):
         return self.coordinates == v.coordinates
 
-my_vector = Vector ([1,2,3,4])
+
+my_vector = Vector([1, 2, 3, 4])
 print(my_vector)
 
-my_vector2 = Vector ([1,2,3,4])
+my_vector2 = Vector([1, 2, 3, 4])
 print(my_vector == my_vector2)
 
 v = Vector([8.218, -9.341])

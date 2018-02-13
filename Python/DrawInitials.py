@@ -21,6 +21,7 @@ def draw_s(turtle):
     turtle.right(90)
     turtle.forward(50)
     reset_turtle_state(turtle)
+
     
 def draw_t(turtle):
     turtle.pendown()
@@ -34,6 +35,7 @@ def draw_t(turtle):
 def reset_turtle_state(turtle):
     turtle.penup()
     turtle.home()
+
 
 def setup_turtle():
     
@@ -56,4 +58,3 @@ def draw_initials(turtle):
 
 
 draw_initials(setup_turtle())
-    
